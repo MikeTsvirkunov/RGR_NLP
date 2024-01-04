@@ -1,0 +1,9 @@
+transformers
+torch==2.0.0+cu117
+torchdata==0.6.0
+pandas
+numpy
+uvicorn
+fastapi
+sentencepiece
+python-ioc
