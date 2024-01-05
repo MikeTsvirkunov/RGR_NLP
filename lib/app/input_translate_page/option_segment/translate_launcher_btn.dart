@@ -25,7 +25,6 @@ class _TranslateLaunchingButtonState extends State<TranslateLaunchingButton> {
             onPressed: () async {
               Map<String, String> pairsLangsTags =
                   ContainerExtractor.extract(varsContainer, 'langs_tags_pairs');
-
               var args = ConstantContainer({
                 'target_lang_tag':
                     pairsLangsTags[langCheckModel.targetLanguage],

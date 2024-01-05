@@ -11,18 +11,24 @@ class NavigationPage extends StatefulWidget {
 class _NavigationPageState extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> pages = ContainerExtractor.extract(widgetsContainer, 'main_pages_list');
+    List<Widget> pages =
+        ContainerExtractor.extract(widgetsContainer, 'main_pages_list');
     return DefaultTabController(
-      length: pages.length, 
-      child: Scaffold(
-        body: TabBarView(children: pages,),
-        bottomNavigationBar: TabBar(
-          indicator: const BoxDecoration(
-            color: Colors.transparent
+        length: pages.length,
+        child: Scaffold(
+          appBar: PreferredSize(
+              preferredSize: const Size.fromHeight(10),
+              child: TabBarView(
+                children: List.filled(2, const SizedBox()),
+              )),
+          body: TabBarView(
+            children: pages,
           ),
-          tabs: ContainerExtractor.extract(widgetsContainer, 'main_tabs_list'),
-        ),
-      )
-    );
+          bottomNavigationBar: TabBar(
+            indicator: const BoxDecoration(color: Colors.transparent),
+            tabs:
+                ContainerExtractor.extract(widgetsContainer, 'main_tabs_list'),
+          ),
+        ));
   }
 }

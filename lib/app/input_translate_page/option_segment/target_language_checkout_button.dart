@@ -6,16 +6,17 @@ import 'package:mobile_nlp_rgr/logic/models/lang_checkout_model.dart';
 import 'package:mobile_nlp_rgr/logic/values/generators_container.dart';
 import 'package:provider/provider.dart';
 
-class LanguageCheckoutButton extends StatefulWidget {
-  final bool isTarget;
+class TargetLanguageCheckoutButton extends StatefulWidget {
   final List<String> availableLanguages;
-  const LanguageCheckoutButton(
-      {super.key, required this.availableLanguages, required this.isTarget});
+  const TargetLanguageCheckoutButton(
+      {super.key, required this.availableLanguages});
   @override
-  State<LanguageCheckoutButton> createState() => _LanguageCheckoutButtonState();
+  State<TargetLanguageCheckoutButton> createState() =>
+      _TargetLanguageCheckoutButtonState();
 }
 
-class _LanguageCheckoutButtonState extends State<LanguageCheckoutButton> {
+class _TargetLanguageCheckoutButtonState
+    extends State<TargetLanguageCheckoutButton> {
   late String currentLanguage;
   @override
   Widget build(BuildContext context) {
@@ -26,15 +27,10 @@ class _LanguageCheckoutButtonState extends State<LanguageCheckoutButton> {
     return Consumer<LangCheckoutModel>(
         builder: (context, model, child) => DropdownButton(
             underline: const SizedBox(height: 0),
-            value:
-                widget.isTarget ? model.targetLanguage : model.sourceLanguage,
+            value: model.targetLanguage,
             items: items,
             onChanged: (value) {
-              if (widget.isTarget) {
-                model.targetLanguage = value;
-              } else {
-                model.sourceLanguage = value;
-              }
+              model.targetLanguage = value;
             }));
   }
 }
