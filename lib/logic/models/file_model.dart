@@ -23,6 +23,7 @@ class FileModel extends ChangeNotifier {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
     File file = File(result!.files.single.path!);
     openedFile = file;
+    path = openedFile.path;
     isOpen = true;
     return file;
   }

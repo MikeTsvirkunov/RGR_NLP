@@ -26,12 +26,13 @@ class _PDFScreenState extends State<PdfViewer> with WidgetsBindingObserver {
               children: [
                 PDFView(
                   filePath: widget.path,
+                  // pdfData: value.openedFile.readAsBytesSync(),
                   enableSwipe: true,
                   swipeHorizontal: true,
                   autoSpacing: false,
                   pageFling: true,
                   pageSnap: true,
-                  defaultPage: currentPage!,
+                  defaultPage: value.currentPage,
                   fitPolicy: FitPolicy.BOTH,
                   preventLinkNavigation: false,
                   onRender: (_pages) {
@@ -51,13 +52,18 @@ class _PDFScreenState extends State<PdfViewer> with WidgetsBindingObserver {
                     });
                   },
                   onViewCreated: (PDFViewController pdfViewController) {
+                    value.controller = Completer<PDFViewController>();
                     value.controller.complete(pdfViewController);
+                    // value.controller.complete(pdfViewController);
                     // if (!value.controller.isCompleted) {
-                    try {
-                      value.controller.complete(pdfViewController);
-                    } catch (err) {
-                      print(err.toString());
-                    }
+                    //   // try {
+                    //   value.controller.complete(pdfViewController);
+                    //   // } catch (err) {
+                    //   // print(err.toString());
+                    // } else {
+                    //   value.controller = Completer<PDFViewController>();
+                    //   value.controller.complete(pdfViewController);
+                    // }
                   },
                   onPageChanged: (int? page, int? total) {
                     setState(() {

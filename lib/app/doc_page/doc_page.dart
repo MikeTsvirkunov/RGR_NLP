@@ -43,15 +43,26 @@ class _InputTranslatePageState extends State<DocPage> {
             modelsContainer, 'file_model'),
         child: Consumer<FileModel>(builder: (context, value, child) {
           if (value.path == "") {
-            return TextButton(
-              child: Text('OpenFile'),
-              onPressed: () {
-                setState(() {
-                  value.getFilePath();
-                });
-                print(value.path);
-              },
-            );
+            FutureBuilder(
+                future: value.getFilePath(),
+                builder: (context, snapshot) =>
+                    Provider<Completer<PDFViewController>>(
+                        create: (_) => Completer<PDFViewController>(),
+                        child: PdfNavigation()));
+            if (value.path == "") {
+              return TextButton(
+                child: Text('OpenFile'),
+                onPressed: () {
+                  setState(() {
+                    value.getFilePath();
+                  });
+                  print(value.path);
+                },
+              );
+            }
+            return Provider<Completer<PDFViewController>>(
+                create: (_) => Completer<PDFViewController>(),
+                child: PdfNavigation());
           }
           return Provider<Completer<PDFViewController>>(
               create: (_) => Completer<PDFViewController>(),
