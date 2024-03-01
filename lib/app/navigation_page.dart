@@ -16,6 +16,8 @@ class _NavigationPageState extends State<NavigationPage> {
     return DefaultTabController(
         length: pages.length,
         child: Scaffold(
+          drawerScrimColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.background,
           appBar: PreferredSize(
               preferredSize: const Size.fromHeight(10),
               child: TabBarView(
@@ -25,6 +27,10 @@ class _NavigationPageState extends State<NavigationPage> {
             children: pages,
           ),
           bottomNavigationBar: TabBar(
+            overlayColor: MaterialStatePropertyAll(
+              Theme.of(context).colorScheme.background,
+            ),
+            dividerColor: Theme.of(context).colorScheme.background,
             indicator: const BoxDecoration(color: Colors.transparent),
             tabs:
                 ContainerExtractor.extract(widgetsContainer, 'main_tabs_list'),

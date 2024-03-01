@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_nlp_rgr/logic/container/container_extractor.dart';
-import 'package:mobile_nlp_rgr/logic/models/translation_model.dart';
+import 'package:mobile_nlp_rgr/logic/models/translate_model.dart';
 import 'package:mobile_nlp_rgr/logic/values/decorations_container.dart';
 import 'package:provider/provider.dart';
 

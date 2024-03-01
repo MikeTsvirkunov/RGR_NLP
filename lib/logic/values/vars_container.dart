@@ -12,5 +12,6 @@ DefaultContainer varsContainer = DefaultContainer({
   'current_target_lang': 'english',
   'current_source_lang': 'russian',
   'langs_tags_pairs': {'russian': 'ru_RU', 'english': 'en_XX'},
-  'available_languages': ['russian', 'english', 'german']
+  'available_languages': ['russian', 'english', 'german'],
+  'current_doc.saved_translations': <String, String>{}
 });

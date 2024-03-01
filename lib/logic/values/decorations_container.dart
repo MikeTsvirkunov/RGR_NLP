@@ -14,6 +14,15 @@ ConstantContainer decorationsContainer = ConstantContainer({
       Colors.transparent,
       Colors.black
     ],
-    stops: [0.0, 0.05, 0.9, 1.0], // 10% purple, 80% transparent, 10% purple
+    stops: [0.0, 0.05, 0.9, 1.0],
+  ),
+  'navigation_button.style': ButtonStyle(
+    shape: MaterialStatePropertyAll(
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
+    overlayColor: const MaterialStatePropertyAll(Color(0xff116611)),
+    backgroundColor: const MaterialStatePropertyAll(Color(0xff339933)),
+    iconColor: const MaterialStatePropertyAll(
+      Color(0xfffcfdf7),
+    ),
   )
 });

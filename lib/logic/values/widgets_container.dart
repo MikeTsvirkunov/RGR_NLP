@@ -5,7 +5,12 @@ import 'package:mobile_nlp_rgr/logic/container/constant_container.dart';
 
 /// Container with common widgets
 ConstantContainer widgetsContainer = ConstantContainer({
-  'main_pages_list': [const InputTranslatePage(), const DocPage()],
+  'main_pages_list': [
+    const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: InputTranslatePage()),
+    const DocPage()
+  ],
   'main_tabs_list': [
     const Tab(
       icon: Icon(Icons.translate),

@@ -4,6 +4,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:mobile_nlp_rgr/app/doc_page/pdf_viewer.dart';
+import 'package:mobile_nlp_rgr/app/doc_page/translates_panel.dart';
+import 'package:sliding_up_panel/sliding_up_panel.dart';
 
 class PdfNavigation extends StatefulWidget {
   final File file;
@@ -23,13 +25,29 @@ class _PDFScreenState extends State<PdfNavigation> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xfffcfdf7),
-        body: PdfViewer(
-          file: widget.file,
-          controller: widget.controller,
-        ),
-        bottomSheet: Container(
-            color: Color(0xfffcfdf7),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: SlidingUpPanel(
+            minHeight: 40,
+            panel: TranslatePanel(),
+            // collapsed: Container(
+            //     color: Theme.of(context).colorScheme.background,
+            //     height: 10,
+            //     child: Center(
+            //         child: Container(
+            //       width: 20,
+            //       height: 5,
+            //       decoration: BoxDecoration(
+            //           color: Colors.black,
+            //           borderRadius: BorderRadius.all(Radius.circular(10))),
+            //     ))),
+            body: PdfViewer(
+              file: widget.file,
+              controller: widget.controller,
+            )),
+        bottomNavigationBar: Container(
+            padding: const EdgeInsets.all(5),
+            height: 40,
+            width: double.maxFinite,
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

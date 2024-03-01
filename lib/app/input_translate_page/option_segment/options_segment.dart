@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_nlp_rgr/app/input_translate_page/option_segment/exchange_language_button.dart';
+import 'package:mobile_nlp_rgr/app/input_translate_page/option_segment/save_translate_button.dart';
 import 'package:mobile_nlp_rgr/app/input_translate_page/option_segment/source_language_checkout_button.dart';
 import 'package:mobile_nlp_rgr/app/input_translate_page/option_segment/target_language_checkout_button.dart';
 import 'package:mobile_nlp_rgr/app/input_translate_page/option_segment/translate_launcher_btn.dart';
@@ -21,6 +23,8 @@ class _OptionSegmentState extends State<OptionSegment> {
       children: [
         SourceLanguageCheckoutButton(availableLanguages: availableLanguages),
         const TranslateLaunchingButton(),
+        const SaveTranslateButton(),
+        const ExchangeLanguageButton(),
         TargetLanguageCheckoutButton(availableLanguages: availableLanguages)
       ],
     );
